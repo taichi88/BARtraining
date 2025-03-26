@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class CardModel
+    public class AccountModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        public string CardNumber { get; set; }
-        public string Pin { get; set; }
-        
+        public string AccountNumber { get; set; }
+        public double Balance { get; set; }
     }
 }

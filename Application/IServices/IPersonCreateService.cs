@@ -11,6 +11,6 @@ namespace Application.IServices
 {
     public interface IPersonCreateService
     {
-        Task<PhysicalPersonModel> CreatePersonAsync(PersonCreateDto personCreateDto);
+        Task<(PhysicalPersonModel, AccountModel, CardModel)> CreatePersonAsync(PersonCreateDto personCreateDto);
     }
 }

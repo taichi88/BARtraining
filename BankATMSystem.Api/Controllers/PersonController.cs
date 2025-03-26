@@ -25,9 +25,9 @@ namespace BankATMSystem.Api.Controllers
         [HttpPost("CreatePerson")]
         public async Task<IActionResult> CreatePerson(PersonCreateDto personCreateDto)
         {
-            var result = await _personCreateService.CreatePersonAsync(personCreateDto);
-            Console.WriteLine(result);
-            return Ok(result);
+            var (user, account, card) = await _personCreateService.CreatePersonAsync(personCreateDto);
+            Console.WriteLine((user, account, card));
+            return Ok(new {User = user, Account = account, Card = card });
         }
 
 
