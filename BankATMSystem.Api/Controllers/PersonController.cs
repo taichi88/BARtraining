@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Application.DTOs;
+using Application.IServices;
 
 namespace BankATMSystem.Api.Controllers
 {
@@ -12,12 +14,23 @@ namespace BankATMSystem.Api.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        [HttpPost("CreatePerson")]
-        public async Task CreatePersonasync(PhysicalPersonModel PhysicalPersonModel)
+        private readonly IPersonCreateService _personCreateService;
+
+        public PersonController(IPersonCreateService personCreateService)
         {
-            throw new NotImplementedException();
+            _personCreateService = personCreateService;
+        }
+
+    
+        [HttpPost("CreatePerson")]
+        public async Task<IActionResult> CreatePerson(PersonCreateDto personCreateDto)
+        {
+            var result = await _personCreateService.CreatePersonAsync(personCreateDto);
+            Console.WriteLine(result);
+            return Ok(result);
         }
 
 
     }
+
 }
