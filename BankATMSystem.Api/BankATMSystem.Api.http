@@ -1,0 +1,6 @@
+@BankATMSystem.Api_HostAddress = http://localhost:5210
+
+GET {{BankATMSystem.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
